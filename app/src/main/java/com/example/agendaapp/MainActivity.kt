@@ -103,8 +103,23 @@ class MainActivity : AppCompatActivity() {
         val etTitle = dialogView.findViewById<EditText>(R.id.etNoteTitle)
         val etDescription = dialogView.findViewById<EditText>(R.id.etNoteDescription)
         val tvDate = dialogView.findViewById<TextView>(R.id.tvSelectedDate)
+        val btnPickTime = dialogView.findViewById<Button>(R.id.btnPickTime)
+        val tvTime = dialogView.findViewById<TextView>(R.id.tvSelectedTime)
 
         tvDate.text = "Date : $selectedDate"
+        var selectedTime = ""
+
+
+        btnPickTime.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val hour = calendar.get(Calendar.HOUR_OF_DAY)
+            val minute = calendar.get(Calendar.MINUTE)
+
+            TimePickerDialog(this, { _, selectedHour, selectedMinute ->
+                selectedTime = String.format("%02d:%02d", selectedHour, selectedMinute)
+                tvTime.text = "Heure : $selectedTime"
+            }, hour, minute, true).show()
+        }
 
         AlertDialog.Builder(this)
             .setTitle("Ajouter une Note")
@@ -112,11 +127,13 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Enregistrer") { _, _ ->
                 val noteTitle = etTitle.text.toString()
                 val noteDescription = etDescription.text.toString()
-                if (noteTitle.isNotBlank() && noteDescription.isNotBlank()) {
+
+                if (noteTitle.isNotBlank() && noteDescription.isNotBlank() ) {
                     val note = Note(
                         date = selectedDate,
                         title = noteTitle,
-                        description = noteDescription
+                        description = noteDescription,
+                        time = selectedTime
                     )
                     notes.add(note)
                     saveNotes()
@@ -128,6 +145,7 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton("Annuler", null)
             .show()
     }
+
 
     fun showEditNoteDialog(note: Note) {
         val dialogView = layoutInflater.inflate(R.layout.dialog_add_note, null)

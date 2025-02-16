@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etNoteTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titre de la note"
+        android:inputType="text"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/etNoteDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/tvSelectedDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date : Non définie"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textColor="@color/pink_700"
+        android:gravity="center"/>
+
+    <!-- Bouton pour choisir l'heure -->
+    <Button
+        android:id="@+id/btnPickTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choisir l'heure"
+        android:background="@drawable/button_rounded"
+        android:textColor="@color/white"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvSelectedTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Heure : Non définie"
+        android:textColor="@color/pink_700"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="8dp"/>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Palette de rose -->
+    <color name="pink_200">#FFB3C6</color>
+    <color name="pink_500">#FF6B9E</color>
+    <color name="pink_700">#FF4370</color>
+    <color name="pink_light">#FFCCD5</color>
+    <color name="pink_dark">#FF3355</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
